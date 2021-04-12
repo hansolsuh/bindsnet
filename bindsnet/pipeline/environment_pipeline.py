@@ -116,7 +116,6 @@ class EnvironmentPipeline(BasePipeline):
                 Monitor(self.network.layers[self.output], ["s"], time=self.time),
                 self.output,
             )
-
             self.spike_record = {
                 self.output: torch.zeros((self.time, self.env.action_space.n)).to(
                     self.device
@@ -199,7 +198,7 @@ class EnvironmentPipeline(BasePipeline):
         # Accumulate reward.
         self.accumulated_reward += reward
 
-        info["accumulated_reward"] = self.accumulated_reward
+#        info["accumulated_reward"] = self.accumulated_reward
 
         return obs, reward, done, info
 

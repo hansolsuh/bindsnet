@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Tuple, Dict, Any
 
 import gym
+import gym_tictac
 import numpy as np
 import torch
 
@@ -136,14 +137,14 @@ class GymEnvironment(Environment):
 
         # Add the raw observation from the gym environment into the info
         # for debugging and display.
-        info["gym_obs"] = self.obs
-
-        # Store frame of history and encode the inputs.
-        if len(self.history) > 0:
-            self.update_history()
-            self.update_index()
-            # Add the delta observation into the info for debugging and display.
-            info["delta_obs"] = self.obs
+#        info["gym_obs"] = self.obs TODO
+#
+#        # Store frame of history and encode the inputs.
+#        if len(self.history) > 0:
+#            self.update_history()
+#            self.update_index()
+#            # Add the delta observation into the info for debugging and display.
+#            info["delta_obs"] = self.obs
 
         # The new standard for images is BxTxCxHxW.
         # The gym environment doesn't follow exactly the same protocol.

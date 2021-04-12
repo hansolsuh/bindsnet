@@ -120,7 +120,7 @@ class BasePipeline:
         """
         self.step_count += 1
 
-        batch = recursive_to(batch, self.device)
+#        batch = recursive_to(batch, self.device) TODO ???
         step_out = self.step_(batch, **kwargs)
 
         if (
